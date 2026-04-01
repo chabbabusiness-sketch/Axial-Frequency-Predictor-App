@@ -652,7 +652,7 @@ if predict_btn:
             st.error(
                 "Error - GAM differs from GradientBoosting by more than expected. "
                 "This usually means the GAM is unstable for this input, often near or beyond its learned boundary, "
-                "and the exp() step amplifies the raw GAM output."
+                "and the exp() step vary the raw GAM output."
             )
             st.markdown(
                 f"""
