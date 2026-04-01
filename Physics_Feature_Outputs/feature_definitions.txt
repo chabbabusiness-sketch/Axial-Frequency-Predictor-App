@@ -1,0 +1,5 @@
+Physical feature definitions
+============================================================
+
+Phi_Fixed = E_Fixed / rho_Fixed
+Phi_Free  = E_Free / rho_Free

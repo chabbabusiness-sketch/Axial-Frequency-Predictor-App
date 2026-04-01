@@ -1,0 +1,13 @@
+Best interpretable equation model summary
+================================================================================
+
+Model         PowerLawExp
+Train_R2         0.836099
+Test_R2           0.88601
+MAE            268.217899
+RMSE           440.728893
+CV_R2_Mean       0.809593
+CV_R2_STD        0.070372
+
+Selected equation:
+ϝ_Axial_Frequency = 0.880963843747 * (Phi_Fixed)^(0.155639217391) * (Phi_Free)^(0.346168850699) * exp((-2.09005723595)*eta_Fixed + (1.88598053896)*eta_Free)

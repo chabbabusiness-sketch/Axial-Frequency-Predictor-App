@@ -1,0 +1,7 @@
+Power-law / Exponential Equation
+================================================================================
+
+Phi_Fixed = E_Fixed / rho_Fixed
+Phi_Free  = E_Free / rho_Free
+
+ϝ_Axial_Frequency = 0.880963843747 * (Phi_Fixed)^(0.155639217391) * (Phi_Free)^(0.346168850699) * exp((-2.09005723595)*eta_Fixed + (1.88598053896)*eta_Free)

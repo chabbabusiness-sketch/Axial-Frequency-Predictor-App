@@ -1,0 +1,7 @@
+Linear Regression Equation
+================================================================================
+
+Phi_Fixed = E_Fixed / rho_Fixed
+Phi_Free  = E_Free / rho_Free
+
+ϝ_Axial_Frequency = 4293.53356937 + (2.7542898968e-05)*Phi_Fixed + (2.32478373645e-05)*Phi_Free - (7259.37993235)*eta_Fixed + (2470.8549358)*eta_Free

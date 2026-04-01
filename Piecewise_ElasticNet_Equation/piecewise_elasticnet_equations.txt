@@ -1,0 +1,62 @@
+Piecewise ElasticNet Log Equations
+
+Split variable: Phi_Fixed
+Threshold: 2068.8926395
+
+Region 1: Phi_Fixed <= 2068.8926395
+
+Best alpha    = 0.0001
+Best l1_ratio = 1
+
+Selected terms:
+- Phi_Fixed: -0.0596574592898
+- Phi_Other: 0.000465527138804
+- sqrt_chi: -0.588030747935
+- log_Phi_Fixed: 21.1268213905
+- log_chi: 0.728994351946
+- Phi_Product: -6.36343391201e-08
+- Phi_Fixed_sq: 1.13106346079e-05
+- nu_Fixed: 112.897709959
+- nu_Other: 0.0978658005872
+- nu_Fixed_sq: -226.32966766
+- nu_Other_sq: 0.0674464011015
+- Phi_Fixed_x_nu_Fixed: 0.0246707995189
+- Phi_Other_x_nu_Other: 0.000379847207095
+- log_chi_x_nu_Fixed: 0.152856154765
+- log_chi_x_nu_Other: -0.326071586749
+
+Log-equation:
+log(f_Axial_Frequency) = -108.075798117 - (0.0596574592898)*Phi_Fixed + (0.000465527138804)*Phi_Other - (0.588030747935)*sqrt_chi + (21.1268213905)*log_Phi_Fixed + (0.728994351946)*log_chi - (6.36343391201e-08)*Phi_Product + (1.13106346079e-05)*Phi_Fixed_sq + (112.897709959)*nu_Fixed + (0.0978658005872)*nu_Other - (226.32966766)*nu_Fixed_sq + (0.0674464011015)*nu_Other_sq + (0.0246707995189)*Phi_Fixed_x_nu_Fixed + (0.000379847207095)*Phi_Other_x_nu_Other + (0.152856154765)*log_chi_x_nu_Fixed - (0.326071586749)*log_chi_x_nu_Other
+
+Explicit equation:
+f_Axial_Frequency = exp(-108.075798117 - (0.0596574592898)*Phi_Fixed + (0.000465527138804)*Phi_Other - (0.588030747935)*sqrt_chi + (21.1268213905)*log_Phi_Fixed + (0.728994351946)*log_chi - (6.36343391201e-08)*Phi_Product + (1.13106346079e-05)*Phi_Fixed_sq + (112.897709959)*nu_Fixed + (0.0978658005872)*nu_Other - (226.32966766)*nu_Fixed_sq + (0.0674464011015)*nu_Other_sq + (0.0246707995189)*Phi_Fixed_x_nu_Fixed + (0.000379847207095)*Phi_Other_x_nu_Other + (0.152856154765)*log_chi_x_nu_Fixed - (0.326071586749)*log_chi_x_nu_Other)
+
+Region 2: Phi_Fixed > 2068.8926395
+
+Best alpha    = 0.0001
+Best l1_ratio = 0.1
+
+Selected terms:
+- Phi_Fixed: 0.00061912093689
+- Phi_Other: -0.000474244729857
+- sqrt_chi: -0.188161481274
+- log_Phi_Fixed: 0.319598890749
+- log_Phi_Other: 0.268564788375
+- log_chi: -0.0182795380851
+- Phi_Fixed_sq: -3.87738977873e-08
+- Phi_Other_sq: 3.3351771515e-08
+- nu_Fixed: -0.331330980649
+- nu_Other: 2.06310282868
+- nu_Fixed_sq: 3.59380392155
+- nu_Other_sq: -5.16535538146
+- Phi_Fixed_x_nu_Fixed: -0.000801915051581
+- Phi_Other_x_nu_Other: 0.000629338898626
+- sqrt_chi_x_nu_Other: 0.336081336297
+- log_chi_x_nu_Fixed: -0.0531384218041
+- log_chi_x_nu_Other: -0.260691142028
+
+Log-equation:
+log(f_Axial_Frequency) = 2.5548779789 + (0.00061912093689)*Phi_Fixed - (0.000474244729857)*Phi_Other - (0.188161481274)*sqrt_chi + (0.319598890749)*log_Phi_Fixed + (0.268564788375)*log_Phi_Other - (0.0182795380851)*log_chi - (3.87738977873e-08)*Phi_Fixed_sq + (3.3351771515e-08)*Phi_Other_sq - (0.331330980649)*nu_Fixed + (2.06310282868)*nu_Other + (3.59380392155)*nu_Fixed_sq - (5.16535538146)*nu_Other_sq - (0.000801915051581)*Phi_Fixed_x_nu_Fixed + (0.000629338898626)*Phi_Other_x_nu_Other + (0.336081336297)*sqrt_chi_x_nu_Other - (0.0531384218041)*log_chi_x_nu_Fixed - (0.260691142028)*log_chi_x_nu_Other
+
+Explicit equation:
+f_Axial_Frequency = exp(2.5548779789 + (0.00061912093689)*Phi_Fixed - (0.000474244729857)*Phi_Other - (0.188161481274)*sqrt_chi + (0.319598890749)*log_Phi_Fixed + (0.268564788375)*log_Phi_Other - (0.0182795380851)*log_chi - (3.87738977873e-08)*Phi_Fixed_sq + (3.3351771515e-08)*Phi_Other_sq - (0.331330980649)*nu_Fixed + (2.06310282868)*nu_Other + (3.59380392155)*nu_Fixed_sq - (5.16535538146)*nu_Other_sq - (0.000801915051581)*Phi_Fixed_x_nu_Fixed + (0.000629338898626)*Phi_Other_x_nu_Other + (0.336081336297)*sqrt_chi_x_nu_Other - (0.0531384218041)*log_chi_x_nu_Fixed - (0.260691142028)*log_chi_x_nu_Other)

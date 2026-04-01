@@ -1,0 +1,7 @@
+Polynomial Regression Equation (degree=2) - REDUCED TOP 12 TERMS
+================================================================================
+
+Phi_Fixed = E_Fixed / rho_Fixed
+Phi_Free  = E_Free / rho_Free
+
+ϝ_Axial_Frequency = 1525.30097439 + (5.18628379494e-05)*Phi_Fixed + (5.18628696914e-05)*Phi_Free + (5.08136095335e-12)*eta_Fixed + (1.17286936403e-11)*eta_Free - (2.04833648619e-12)*Phi_Fixed^2 + (2.04026814839e-12)*Phi_Fixed * Phi_Free - (9.33598082103e-05)*Phi_Fixed * eta_Fixed + (0.000218063180376)*Phi_Fixed * eta_Free - (9.33598082103e-05)*Phi_Free * eta_Fixed + (9.80078144155e-06)*Phi_Free * eta_Free + (2.34630503814e-12)*eta_Fixed * eta_Free + (6.84549162967e-12)*eta_Free^2

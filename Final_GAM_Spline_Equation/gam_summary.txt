@@ -1,0 +1,36 @@
+Best GAM candidate
+GAM_Additive_Plus_Interactions
+
+GAM spline equation structure
+log(f_Axial_Frequency) = intercept
+                       + s(Phi_Fixed)
+                       + s(Phi_Other)
+                       + s(sqrt_chi)
+                       + s(nu_Fixed)
+                       + s(nu_Other)
+                       + te(sqrt_chi, nu_Other)
+                       + te(Phi_Fixed, nu_Fixed)
+                       + te(Phi_Other, nu_Other)
+
+Test results
+                         Model       R2        MAE       RMSE
+GAM_Additive_Plus_Interactions 0.958434 188.813555 289.395800
+              GradientBoosting 0.970632 185.075525 243.254727
+
+Feature definitions
+R_E = E_Fixed / E_Other
+R_rho = rho_Fixed / rho_Other
+chi = R_E / R_rho
+Phi_Fixed = sqrt(E_Fixed / rho_Fixed)
+Phi_Other = sqrt(E_Other / rho_Other)
+
+GAM features
+- Phi_Fixed
+- Phi_Other
+- sqrt_chi
+- nu_Fixed
+- nu_Other
+
+Important note
+A GAM spline equation is not one short closed-form formula.
+It is a sum of smooth spline functions and tensor-product spline interactions.
