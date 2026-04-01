@@ -566,13 +566,12 @@ def create_contour_plot(phi_fixed, phi_other):
 def show_output_image():
     img_path = optional_existing_path(IMAGE_CANDIDATES)
     if img_path is not None:
-        st.subheader("Bi-Material Cantilever Visualization")
-        st.image(str(img_path), caption=img_path.name, use_container_width=True)
+        st.image(str(img_path), use_container_width=True)
 
 def show_output_video():
     video_path = optional_existing_path(VIDEO_CANDIDATES)
     if video_path is not None:
-        st.subheader("Axial Deformation Visualization of Cantilever Model")
+        st.subheader("Axial Deformation")
         st.video(video_path.read_bytes())
 
 # =========================================================
@@ -580,6 +579,9 @@ def show_output_video():
 # =========================================================
 st.title("Frequency Predictor")
 st.write("Enter the material properties in SI units and click Predict.")
+
+# SHOW IMAGE IMMEDIATELY UNDER THE TITLE AREA
+show_output_image()
 
 with st.sidebar:
     st.header("Input Material Properties")
@@ -691,7 +693,6 @@ if predict_btn:
             unsafe_allow_html=True,
         )
 
-        show_output_image()
         show_output_video()
 
         if inside_contour_limits:
