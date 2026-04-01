@@ -184,34 +184,34 @@ st.markdown(
 # DISPLAY NAME MAPPING
 # =========================================================
 DISPLAY_NAME_MAP = {
-    "E_Fixed": "E (Fixed)",
-    "E_Other": "E (Free)",
-    "E_Free": "E (Free)",
-    "rho_Fixed": "ρ (Fixed)",
-    "rho_Other": "ρ (Free)",
-    "rho_Free": "ρ (Free)",
-    "nu_Fixed": "ν (Fixed)",
-    "nu_Other": "ν (Free)",
-    "eta_Fixed": "ν (Fixed)",
-    "eta_Free": "ν (Free)",
-    "Phi_Fixed": "ϕ (Fixed)",
-    "Phi_Other": "ϕ (Free)",
-    "Phi_Free": "ϕ (Free)",
-    "sqrt_chi": "√χ",
-    "chi": "χ",
-    "log_chi": "log(χ)",
-    "log_Phi_Fixed": "log(ϕ Fixed)",
-    "log_Phi_Other": "log(ϕ Free)",
-    "Phi_Product": "ϕ(Fixed) × ϕ(Free)",
-    "Phi_Fixed_sq": "ϕ(Fixed)^2",
-    "Phi_Other_sq": "ϕ(Free)^2",
-    "nu_Fixed_sq": "ν(Fixed)^2",
-    "nu_Other_sq": "ν(Free)^2",
-    "Phi_Fixed_x_nu_Fixed": "ϕ(Fixed) × ν(Fixed)",
-    "Phi_Other_x_nu_Other": "ϕ(Free) × ν(Free)",
-    "sqrt_chi_x_nu_Other": "√χ × ν(Free)",
-    "log_chi_x_nu_Fixed": "log(χ) × ν(Fixed)",
-    "log_chi_x_nu_Other": "log(χ) × ν(Free)",
+    "E_Fixed": "E (Fixed) [N/m²]",
+    "E_Other": "E (Free) [N/m²]",
+    "E_Free": "E (Free) [N/m²]",
+    "rho_Fixed": "ρ (Fixed) [kg/m³]",
+    "rho_Other": "ρ (Free) [kg/m³]",
+    "rho_Free": "ρ (Free) [kg/m³]",
+    "nu_Fixed": "ν (Fixed) ",
+    "nu_Other": "ν (Free) ",
+    "eta_Fixed": "ν (Fixed) ",
+    "eta_Free": "ν (Free) ",
+    "Phi_Fixed": "ϕ (Fixed) [m/s]",
+    "Phi_Other": "ϕ (Free) [m/s]",
+    "Phi_Free": "ϕ (Free) [m/s]",
+    "sqrt_chi": "√χ [-]",
+    "chi": "χ [-]",
+    "log_chi": "log(χ) [-]",
+    "log_Phi_Fixed": "log(ϕ Fixed) [-]",
+    "log_Phi_Other": "log(ϕ Free) [-]",
+    "Phi_Product": "ϕ(Fixed) × ϕ(Free) [m²/s²]",
+    "Phi_Fixed_sq": "ϕ(Fixed)^2 [m²/s²]",
+    "Phi_Other_sq": "ϕ(Free)^2 [m²/s²]",
+    "nu_Fixed_sq": "ν(Fixed)^2 [-]",
+    "nu_Other_sq": "ν(Free)^2 [-]",
+    "Phi_Fixed_x_nu_Fixed": "ϕ(Fixed) × ν(Fixed) [m/s]",
+    "Phi_Other_x_nu_Other": "ϕ(Free) × ν(Free) [m/s]",
+    "sqrt_chi_x_nu_Other": "√χ × ν(Free) [-]",
+    "log_chi_x_nu_Fixed": "log(χ) × ν(Fixed) [-]",
+    "log_chi_x_nu_Other": "log(χ) × ν(Free) [-]",
 }
 
 def pretty_name(name):
@@ -536,8 +536,8 @@ def create_contour_plot(phi_fixed, phi_other):
         linewidths=2
     )
 
-    ax.set_xlabel("ϕ (Fixed)")
-    ax.set_ylabel("ϕ (Free)")
+    ax.set_xlabel("ϕ (Fixed) [m/s]")
+    ax.set_ylabel("ϕ (Free) [m/s]")
     ax.set_title("Bi-Material Axial Frequency")
     ax.grid(True, alpha=0.3)
 
@@ -547,21 +547,22 @@ def create_contour_plot(phi_fixed, phi_other):
 # =========================================================
 # GUI
 # =========================================================
-st.title("Frequency Predictor")
-st.write("Enter the material properties and click Predict.")
+st.title("Frequency Predictor (Hz)")
+st.write("Enter the material properties in SI units and click Predict.")
 
 with st.sidebar:
     st.header("Input Material Properties")
+    st.caption("Use SI units: E in N/m², ρ in kg/m³, and ν is dimensionless [-].")
 
     st.subheader("Fixed Material")
-    E_Fixed = st.number_input("E (Fixed)", min_value=0.0, value=1.970000e11, format="%.6e")
-    rho_Fixed = st.number_input("ρ (Fixed)", min_value=0.0, value=7750.3, format="%.6f")
-    nu_Fixed = st.number_input("ν (Fixed)", min_value=0.0, max_value=0.4999, value=0.29, format="%.6f")
+    E_Fixed = st.number_input("E (Fixed) [N/m²]", min_value=0.0, value=1.970000e11, format="%.6e")
+    rho_Fixed = st.number_input("ρ (Fixed) [kg/m³]", min_value=0.0, value=7750.3, format="%.6f")
+    nu_Fixed = st.number_input("ν (Fixed) [-]", min_value=0.0, max_value=0.4999, value=0.29, format="%.6f")
 
     st.subheader("Free Material")
-    E_Other = st.number_input("E (Free)", min_value=0.0, value=4.240000e8, format="%.6e")
-    rho_Other = st.number_input("ρ (Free)", min_value=0.0, value=2200.5, format="%.6f")
-    nu_Other = st.number_input("ν (Free)", min_value=0.0, max_value=0.4999, value=0.45, format="%.6f")
+    E_Other = st.number_input("E (Free) [N/m²]", min_value=0.0, value=4.240000e8, format="%.6e")
+    rho_Other = st.number_input("ρ (Free) [kg/m³]", min_value=0.0, value=2200.5, format="%.6f")
+    nu_Other = st.number_input("ν (Free) [-]", min_value=0.0, max_value=0.4999, value=0.45, format="%.6f")
 
     predict_btn = st.button("Predict", use_container_width=True)
 
@@ -590,8 +591,8 @@ if predict_btn:
                 f"""
                 <div class="limit-box">
                     Allowed contour-data limits:<br>
-                    ϕ (Fixed): {x_min:.6f} to {x_max:.6f}<br>
-                    ϕ (Free): {y_min:.6f} to {y_max:.6f}
+                    ϕ (Fixed) [m/s]: {x_min:.6f} to {x_max:.6f}<br>
+                    ϕ (Free) [m/s]: {y_min:.6f} to {y_max:.6f}
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -616,7 +617,7 @@ if predict_btn:
         gam_gap = abs(gam_pred - gb_pred)
         if gam_gap > 1000:
             st.error(
-                "Error - GAM differs from GradientBoosting by more amount than other. "
+                "Error - GAM differs from GradientBoosting by more than 1000. "
                 "This usually means the GAM is unstable for this input, often near or beyond its learned boundary, "
                 "and the exp() step amplifies the raw GAM output."
             )
@@ -635,13 +636,13 @@ if predict_btn:
         st.subheader("Derived Features")
         d1, d2, d3, d4 = st.columns(4)
         with d1:
-            render_small_card("ϕ (Fixed)", f"{v['Phi_Fixed']:.6f}")
+            render_small_card("ϕ (Fixed) [m/s]", f"{v['Phi_Fixed']:.6f}")
         with d2:
-            render_small_card("ϕ (Free)", f"{v['Phi_Other']:.6f}")
+            render_small_card("ϕ (Free) [m/s]", f"{v['Phi_Other']:.6f}")
         with d3:
-            render_small_card("√χ", f"{v['sqrt_chi']:.6f}")
+            render_small_card("√χ [-]", f"{v['sqrt_chi']:.6f}")
         with d4:
-            render_small_card("log(χ)", f"{v['log_chi']:.6f}")
+            render_small_card("log(χ) [-]", f"{v['log_chi']:.6f}")
 
         st.subheader("2-Piece ElasticNet Region")
         pretty_split_var = pretty_name(split_var)
@@ -679,12 +680,14 @@ if predict_btn:
         with eq1:
             st.markdown('<div class="formula-box">', unsafe_allow_html=True)
             st.latex(r"\phi_{\mathrm{Fixed}}=\sqrt{\frac{E_{\mathrm{Fixed}}}{\rho_{\mathrm{Fixed}}}}")
+            st.markdown("**Units:** [m/s]")
             st.markdown(f"**Value:** {v['Phi_Fixed']:.6f}")
             st.markdown("</div>", unsafe_allow_html=True)
 
         with eq2:
             st.markdown('<div class="formula-box">', unsafe_allow_html=True)
             st.latex(r"\phi_{\mathrm{Free}}=\sqrt{\frac{E_{\mathrm{Free}}}{\rho_{\mathrm{Free}}}}")
+            st.markdown("**Units:** [m/s]")
             st.markdown(f"**Value:** {v['Phi_Other']:.6f}")
             st.markdown("</div>", unsafe_allow_html=True)
 
@@ -692,12 +695,14 @@ if predict_btn:
         with chi1:
             st.markdown('<div class="formula-box">', unsafe_allow_html=True)
             st.latex(r"\chi=\frac{E_{\mathrm{Fixed}}/E_{\mathrm{Free}}}{\rho_{\mathrm{Fixed}}/\rho_{\mathrm{Free}}}")
+            st.markdown("**Units:** [-]")
             st.markdown(f"**Value of χ:** {v['chi']:.6f}")
             st.markdown("</div>", unsafe_allow_html=True)
 
         with chi2:
             st.markdown('<div class="formula-box">', unsafe_allow_html=True)
             st.latex(r"\sqrt{\chi}=\sqrt{\frac{E_{\mathrm{Fixed}}/E_{\mathrm{Free}}}{\rho_{\mathrm{Fixed}}/\rho_{\mathrm{Free}}}}")
+            st.markdown("**Units:** [-]")
             st.markdown(f"**Value of √χ:** {v['sqrt_chi']:.6f}")
             st.markdown("</div>", unsafe_allow_html=True)
 
@@ -711,8 +716,8 @@ if predict_btn:
             f"""
             <div class="limit-box">
                 <b>Contour-data limits</b><br>
-                ϕ (Fixed): {x_min:.6f} to {x_max:.6f}<br>
-                ϕ (Free): {y_min:.6f} to {y_max:.6f}
+                ϕ (Fixed) [m/s]: {x_min:.6f} to {x_max:.6f}<br>
+                ϕ (Free) [m/s]: {y_min:.6f} to {y_max:.6f}
             </div>
             """,
             unsafe_allow_html=True,
