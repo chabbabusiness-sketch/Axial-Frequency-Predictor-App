@@ -638,7 +638,7 @@ if predict_btn:
         gb_pred = predict_gradient_boosting(artifacts["gb_model"], gb_df)
         gam_raw, gam_pred = predict_gam(artifacts["gam_model"], gam_df)
 
-        st.subheader("Predicted Frequency")
+        st.subheader("Predicted Frequency (Hz)")
         c1, c2, c3 = st.columns(3)
         with c1:
             render_pred_card("2-piece ElasticNet", enet_pred)
