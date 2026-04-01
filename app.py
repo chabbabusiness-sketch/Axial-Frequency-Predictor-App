@@ -650,7 +650,7 @@ if predict_btn:
         gam_gap = abs(gam_pred - gb_pred)
         if gam_gap > 1000:
             st.error(
-                "Error - GAM differs from GradientBoosting by more than 1000. "
+                "Error - GAM differs from GradientBoosting by more than expected. "
                 "This usually means the GAM is unstable for this input, often near or beyond its learned boundary, "
                 "and the exp() step amplifies the raw GAM output."
             )
