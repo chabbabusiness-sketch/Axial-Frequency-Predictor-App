@@ -31,8 +31,18 @@ CONTOUR_DATA_CANDIDATES = [
     BASE_DIR / "Matlab.xlsx",
 ]
 
+IMAGE_CANDIDATES = [
+    BASE_DIR / "Steel and Aluminium.png",
+    BASE_DIR / "Physics_Feature_Outputs" / "Steel and Aluminium.png",
+]
+
+VIDEO_CANDIDATES = [
+    BASE_DIR / "Axial Deformation.mp4",
+    BASE_DIR / "Physics_Feature_Outputs" / "Axial Deformation.mp4",
+]
+
 # =========================================================
-# EXACT BOUNDARIES FROM summary_axial_all_cases.csv
+# EXACT BOUNDARIES
 # =========================================================
 EXACT_BOUNDS_GB = {
     "Phi_Fixed": (438.9572656045681, 12505.054249145147),
@@ -190,10 +200,10 @@ DISPLAY_NAME_MAP = {
     "rho_Fixed": "ρ (Fixed) [kg/m³]",
     "rho_Other": "ρ (Free) [kg/m³]",
     "rho_Free": "ρ (Free) [kg/m³]",
-    "nu_Fixed": "ν (Fixed) ",
-    "nu_Other": "ν (Free) ",
-    "eta_Fixed": "ν (Fixed) ",
-    "eta_Free": "ν (Free) ",
+    "nu_Fixed": "ν (Fixed) [-]",
+    "nu_Other": "ν (Free) [-]",
+    "eta_Fixed": "ν (Fixed) [-]",
+    "eta_Free": "ν (Free) [-]",
     "Phi_Fixed": "ϕ (Fixed) [m/s]",
     "Phi_Other": "ϕ (Free) [m/s]",
     "Phi_Free": "ϕ (Free) [m/s]",
@@ -230,6 +240,12 @@ def first_existing_path(candidates, label):
     raise FileNotFoundError(
         f"{label} not found. Checked:\n" + "\n".join(str(p) for p in candidates)
     )
+
+def optional_existing_path(candidates):
+    for path in candidates:
+        if path.exists():
+            return path
+    return None
 
 def safe_log(x):
     return math.log(max(x, 1e-12))
@@ -545,9 +561,24 @@ def create_contour_plot(phi_fixed, phi_other):
     return fig
 
 # =========================================================
+# OPTIONAL MEDIA
+# =========================================================
+def show_output_image():
+    img_path = optional_existing_path(IMAGE_CANDIDATES)
+    if img_path is not None:
+        st.subheader("Bi-Material Cantilever Visualization")
+        st.image(str(img_path), caption=img_path.name, use_container_width=True)
+
+def show_output_video():
+    video_path = optional_existing_path(VIDEO_CANDIDATES)
+    if video_path is not None:
+        st.subheader("Axial Deformation Visualization of Cantilever Model")
+        st.video(video_path.read_bytes())
+
+# =========================================================
 # GUI
 # =========================================================
-st.title("Frequency Predictor (Hz)")
+st.title("Frequency Predictor")
 st.write("Enter the material properties in SI units and click Predict.")
 
 with st.sidebar:
@@ -659,6 +690,9 @@ if predict_btn:
             f'<div class="caption-text">Current {pretty_split_var} = {split_value:.6g}</div>',
             unsafe_allow_html=True,
         )
+
+        show_output_image()
+        show_output_video()
 
         if inside_contour_limits:
             st.subheader("Contour Plot from Excel Data")
