@@ -541,7 +541,7 @@ def create_contour_plot(phi_fixed, phi_other):
     fig, ax = plt.subplots(figsize=(9, 6))
     contour = ax.contourf(Xg, Yg, Zg, levels=20)
     cbar = fig.colorbar(contour, ax=ax)
-    cbar.set_label(original_names[2])
+    cbar.set_label(r"$f_{\mathrm{axial}}$ frequency")
 
     ax.scatter(
         [phi_fixed],
