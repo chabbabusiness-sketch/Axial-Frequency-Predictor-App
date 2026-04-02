@@ -742,7 +742,7 @@ if predict_btn:
 
         st.subheader("Training / Validity Regions")
         st.markdown(
-            '<div class="section-note">These are the exact lower and upper boundaries from summary_axial_all_cases.csv.</div>',
+            '<div class="section-note">These are the exact lower and upper boundaries from results</div>',
             unsafe_allow_html=True,
         )
 
