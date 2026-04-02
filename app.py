@@ -648,7 +648,7 @@ if predict_btn:
             render_pred_card("GAM", gam_pred)
 
         gam_gap = abs(gam_pred - gb_pred)
-        if gam_gap > 1000:
+        if gam_gap > 10000:
             st.error(
                 "Error - GAM differs from GradientBoosting by more than expected. "
                 "This usually means the GAM is unstable for this input, often near or beyond its learned boundary, "
@@ -660,7 +660,6 @@ if predict_btn:
                     GradientBoosting = {gb_pred:.6f}<br>
                     GAM raw output = {gam_raw:.6f}<br>
                     GAM final output = {gam_pred:.6f}<br>
-                    |GAM - GradientBoosting| = {gam_gap:.6f}
                 </div>
                 """,
                 unsafe_allow_html=True,
