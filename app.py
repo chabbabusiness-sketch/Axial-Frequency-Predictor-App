@@ -695,7 +695,7 @@ if predict_btn:
         show_output_video()
 
         if inside_contour_limits:
-            st.subheader("Contour Plot from Excel Data")
+            st.subheader("Contour Plot of Axial Frequency")
             fig = create_contour_plot(v["Phi_Fixed"], v["Phi_Other"])
             st.pyplot(fig, use_container_width=True)
 
